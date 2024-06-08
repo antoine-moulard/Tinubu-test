@@ -1,0 +1,151 @@
+openapi: 3.0.3
+info:
+  title: Swagger API - OpenAPI 3.0
+  description: |-
+    A sample API for a test project.
+  version: 0.0.1
+tags:
+  - name: Insurance policy
+    description: CRUD for insurance policies
+paths:
+
+  /insurance:
+    get:
+      summary: Retrieve all insurance policies
+      operationId: getInsurances
+      tags:
+        - insurance
+      responses:
+        '200':
+          description: A list of all insurance policies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insurance'
+        '500':
+          description: Internal server error
+    post:
+      summary: Create a new insurance policy
+      operationId: createInsurance
+      tags:
+        - insurance
+      requestBody:
+        description: Create a new insurance policy
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Insurance'
+      responses:
+        '200':
+          description: A list of all insurance policies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insurance'
+        '500':
+          description: Internal server error
+  /insurance/{insuranceId}:
+    get:
+      summary: Retrieve an insurance policy
+      operationId: getInsurance
+      tags:
+        - insurance
+      parameters:
+        - name: insuranceId
+          in: path
+          description: ID of the insurance policy that needs to be updated
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insurance'
+        '404':
+          description: Insurance was not found
+        '500':
+          description: Internal server error
+    put:
+      summary: Update a new insurance policy
+      operationId: updateInsurance
+      tags:
+        - insurance
+      parameters:
+        - name: insuranceId
+          in: path
+          description: ID of the insurance policy that needs to be updated
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        description: Update a new insurance policy with these data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Insurance'
+      responses:
+        '200':
+          description: A list of all insurance policies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insurance'
+        '404':
+          description: Insurance was not found
+        '500':
+          description: Internal server error
+
+components:
+  schemas:
+    Insurance:
+      required:
+        - name
+        - status
+        - startDate
+        - endDate
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+          example: 018ff832-3280-7dbc-a426-82a0148ee390
+        name:
+          type: string
+        status:
+          type: string
+          enum:
+            - active
+            - inactive
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        message:
+          type: string
+#  securitySchemes:
+#    basic_auth:
+#      type: http
+#      scheme: basic
