@@ -172,6 +172,7 @@
                             <generatorName>spring</generatorName>
                             <skipIfSpecIsUnchanged>true</skipIfSpecIsUnchanged>
                             <configHelp>false</configHelp>
+                            <modelNameSuffix>Dto</modelNameSuffix>
                             <configOptions>
                                 <interfaceOnly>true</interfaceOnly>
                                 <sourceFolder>src/gen/java/main</sourceFolder>
