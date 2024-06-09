@@ -38,14 +38,13 @@ paths:
             schema:
               $ref: '#/components/schemas/Insurance'
       responses:
-        '200':
-          description: A list of all insurance policies
+        '201':
+          description: Insurance was created
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Insurance'
+                type: string
+                format: uuid
         '500':
           description: Internal server error
   /insurance/{insuranceId}:
@@ -94,13 +93,7 @@ paths:
               $ref: '#/components/schemas/Insurance'
       responses:
         '200':
-          description: A list of all insurance policies
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Insurance'
+          description: Update was successful
         '404':
           description: Insurance was not found
         '500':
@@ -134,18 +127,11 @@ components:
         endDate:
           type: string
           format: date-time
-
-    ApiResponse:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        type:
+        createdAt:
           type: string
-        message:
+          format: date-time
+          readOnly: true
+        lastUpdatedAt:
           type: string
-#  securitySchemes:
-#    basic_auth:
-#      type: http
-#      scheme: basic
+          format: date-time
+          readOnly: true

@@ -1,5 +1,7 @@
 package com.tinubu.insuranceApi.domain;
 
+import com.tinubu.insuranceApi.domain.models.Insurance;
+import com.tinubu.insuranceApi.domain.models.InsuranceStatus;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,7 +12,7 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class InsuranceTest {
+public class InsuranceTest {
 
     @ParameterizedTest
     @MethodSource

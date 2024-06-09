@@ -1,6 +1,6 @@
-package com.tinubu.insuranceApi.domain.usecases;
+package com.tinubu.insuranceApi.domain;
 
-import com.tinubu.insuranceApi.domain.Insurance;
+import com.tinubu.insuranceApi.domain.models.Insurance;
 
 import java.util.List;
 import java.util.UUID;

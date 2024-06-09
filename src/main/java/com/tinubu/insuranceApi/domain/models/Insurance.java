@@ -1,4 +1,4 @@
-package com.tinubu.insuranceApi.domain;
+package com.tinubu.insuranceApi.domain.models;
 
 import java.time.Instant;
 import java.time.OffsetDateTime;

@@ -1,7 +1,8 @@
 package com.tinubu.insuranceApi.infra;
 
-import com.tinubu.insuranceApi.domain.Insurance;
-import com.tinubu.insuranceApi.domain.InsuranceStatus;
+import com.tinubu.insuranceApi.domain.models.CreateInsurance;
+import com.tinubu.insuranceApi.domain.models.Insurance;
+import com.tinubu.insuranceApi.domain.models.InsuranceStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -61,5 +62,21 @@ public class InsuranceEntity {
                 this.getEndDate(),
                 new Insurance.Technical(this.getCreatedAt(), this.getUpdatedAt())
         );
+    }
+
+    public static InsuranceEntity from(Insurance insurance) {
+        var updated = new InsuranceEntity(
+                insurance.name(),
+                insurance.insuranceStatus(),
+                insurance.startDate(),
+                insurance.endDate()
+        );
+        updated.setId(insurance.id());
+        updated.setCreatedAt(insurance.technical().createdAt());
+        return updated;
+    }
+
+    public static InsuranceEntity from(CreateInsurance create) {
+        return new InsuranceEntity(create.name(), create.insuranceStatus(), create.startDate(), create.endDate());
     }
 }
