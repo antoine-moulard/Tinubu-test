@@ -9,7 +9,7 @@ import java.util.UUID;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class QueryInsuranceImplTest {
+public class QueryInsuranceImplTest {
 
     private final QueryInsuranceImpl queryInsurance;
 

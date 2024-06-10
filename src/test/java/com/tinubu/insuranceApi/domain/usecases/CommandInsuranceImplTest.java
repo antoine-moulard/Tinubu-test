@@ -16,7 +16,7 @@ import java.util.UUID;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class CommandInsuranceImplTest {
+public class CommandInsuranceImplTest {
 
     private final CommandInsuranceImpl commandInsurance;
 

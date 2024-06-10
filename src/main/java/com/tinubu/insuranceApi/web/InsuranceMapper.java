@@ -5,7 +5,6 @@ import com.tinubu.insuranceApi.domain.models.Insurance;
 import com.tinubu.insuranceApi.domain.models.InsuranceStatus;
 import com.tinubu.insuranceApi.domain.models.UpdateInsurance;
 import org.jetbrains.annotations.NotNull;
-import org.openapitools.model.InsuranceDto;
 
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
