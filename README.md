@@ -25,11 +25,11 @@ $ mvn clean install
 Build the Docker Image:
 
 ```sh
-$ docker run -p 8080:8080 insuranceapiapplication
+$ docker build -t insurance-api-application .
 ```
 
 Run the Docker Image:
 
 ```sh
-$ docker run -p 8080:8080 insuranceapiapplication
+$ docker run -p 8080:8080 insurance-api-application
 ```
